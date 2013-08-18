@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Duena Woocommerce Compatibility Package
- * @version 1.0
+ * @version 0.2
  */
 
 /*
@@ -9,11 +9,9 @@ Plugin Name: Duena Woocommerce Compatibility Package
 Plugin URI: 
 Description: This package helps you easly integrate Duena wordpress theme with Woocommerce plugin
 Author: MjHead
-Version: 0.1
+Version: 0.2
 Author URI: 
 */
-
-@define( 'DWCP_PLUGIN_DIR', WP_PLUGIN_URL.'/duena-woocommerce-compatibility' );
 
 /**
  * Check if WooCommerce is active, then do anything
@@ -51,7 +49,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	//Duena Additional CSS
 	add_action( 'wp_enqueue_scripts', 'duena_compatible_css', 20 );
 	function duena_compatible_css() {
-		wp_enqueue_style( 'duena-compatible-css', DWCP_PLUGIN_DIR . '/custom-style.css', '1.0' );
+		wp_enqueue_style( 'duena-compatible-css', plugins_url( 'custom-style.css' , __FILE__ ), '1.0' );
 	}
 
 	add_theme_support( 'woocommerce' );
